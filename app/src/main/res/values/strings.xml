@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">MVP-Navigation</string>
+    <string name="app_description">Navigation examples</string>
+
+    <string name="example1_title">Example 1 Activities</string>
+    <string name="example1_description">Example 1 Description</string>
+
+    <string name="example2_title">Example 2 Fragments</string>
+    <string name="example2_description">Example 2 Description</string>
+
+    <string name="example3_title">Example 3 ViewPager</string>
+    <string name="example3_description">Example 3 Description</string>
 </resources>
