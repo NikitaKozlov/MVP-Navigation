@@ -2,11 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".core.fragments.article_list.ArticleListFragment"
-    android:background="@android:color/holo_red_dark">
+    tools:context=".core.fragments.article_list.ArticleListFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:padding="@dimen/activity_vertical_margin"
+        android:id="@+id/article_body"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

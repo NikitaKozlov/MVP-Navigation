@@ -5,12 +5,13 @@ import org.kaerdan.mvp_navigation.core.data.DataProvider;
 public class FavouriteArticleListPresenter implements ArticleListContract.Presenter, OnArticleClickListener {
 
     private ArticleListContract.View view;
+    private ArticleListNavigationContract.Navigator navigator;
 
     @Override
     public void onAttachView(ArticleListContract.View view) {
         this.view = view;
 
-        //Usually this call goes asynchronous but for this example it doesn't matter
+        //Usually this call goes asynchronous, but for this example it doesn't matter
         view.displayArticles(DataProvider.getInstance().getFavouriteArticles(), this);
     }
 
@@ -21,6 +22,11 @@ public class FavouriteArticleListPresenter implements ArticleListContract.Presen
 
     @Override
     public void onArticleClick(int id) {
+        navigator.openArticle(id);
+    }
 
+    @Override
+    public void setNavigator(ArticleListNavigationContract.Navigator navigator) {
+        this.navigator = navigator;
     }
 }

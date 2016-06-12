@@ -1,12 +1,23 @@
 package org.kaerdan.mvp_navigation.example1_activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import org.kaerdan.mvp_navigation.R;
-import org.kaerdan.mvp_navigation.core.fragments.article_list.ArticleListFragment;
+import org.kaerdan.mvp_navigation.core.fragments.article.ArticleFragment;
 
 public class ArticleActivity extends AppCompatActivity {
+
+    private static final String ARTICLE_ID_TAG = "Article id";
+
+    public static Intent createIntent(Context context, int id) {
+        Intent intent = new Intent(context, ArticleActivity.class);
+        intent.putExtra(ARTICLE_ID_TAG, id);
+        return intent;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -14,8 +25,11 @@ public class ArticleActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.content_frame, new ArticleListFragment(), null)
+                    .add(R.id.content_frame, ArticleFragment.newInstance(getIntent()
+                            .getIntExtra(ARTICLE_ID_TAG, 0)), null)
                     .commit();
         }
     }
+
+
 }

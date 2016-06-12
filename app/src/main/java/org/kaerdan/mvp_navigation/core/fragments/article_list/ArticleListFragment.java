@@ -1,5 +1,6 @@
 package org.kaerdan.mvp_navigation.core.fragments.article_list;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -38,7 +39,24 @@ public class ArticleListFragment extends Fragment  implements ArticleListContrac
 
     @NonNull
     protected ArticleListContract.Presenter getPresenter() {
-        return new ArticleListPresenter();
+        ArticleListContract.Presenter presenter = new ArticleListPresenter();
+        presenter.setNavigator(getNavigator(presenter));
+        return presenter;
+    }
+
+    @NonNull
+    private ArticleListNavigationContract.Navigator getNavigator(ArticleListContract.Presenter presenter) {
+        Fragment parentFragment = getParentFragment();
+        if (parentFragment != null && parentFragment instanceof ArticleListNavigationContract.NavigatorProvider) {
+            return ((ArticleListNavigationContract.NavigatorProvider) parentFragment).getNavigator(presenter);
+        } else {
+            Activity activity = getActivity();
+            if (activity instanceof ArticleListNavigationContract.NavigatorProvider) {
+                return ((ArticleListNavigationContract.NavigatorProvider) activity).getNavigator(presenter);
+            }
+        }
+        throw new IllegalStateException("Activty or parent Fragment must implement " +
+                "ArticleListNavigationContract.NavigatorProvider");
     }
 
     @Override

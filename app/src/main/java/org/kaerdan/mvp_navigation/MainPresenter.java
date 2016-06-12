@@ -1,6 +1,6 @@
 package org.kaerdan.mvp_navigation;
 
-import org.kaerdan.mvp_navigation.example1_activities.ArticleActivity;
+import org.kaerdan.mvp_navigation.example1_activities.ArticleListActivity;
 import org.kaerdan.mvp_navigation.example2_fragments.SingleActivity;
 import org.kaerdan.mvp_navigation.example3_viewpager.ArticleViewPagerActivity;
 
@@ -12,7 +12,7 @@ public class MainPresenter  implements MainContract.Presenter {
     private List<Integer> stringIdList = Arrays.asList(R.string.example1_title,
             R.string.example2_title, R.string.example3_title);
 
-    private List<Class<?>> activityClsList = Arrays.<Class<?>>asList(ArticleActivity.class,
+    private List<Class<?>> activityClsList = Arrays.<Class<?>>asList(ArticleListActivity.class,
             SingleActivity.class, ArticleViewPagerActivity.class);
 
     private MainContract.View view;

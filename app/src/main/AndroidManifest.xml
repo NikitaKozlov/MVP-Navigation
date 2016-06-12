@@ -16,9 +16,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".example1_activities.ArticleActivity"
+        <activity android:name=".example1_activities.ArticleListActivity"
             android:label="@string/example1_title"
             android:parentActivityName=".MainActivity"/>
+
+        <activity android:name=".example1_activities.ArticleActivity"
+            android:label="@string/example1_title"
+            android:parentActivityName=".example1_activities.ArticleListActivity"/>
 
         <activity android:name=".example2_fragments.SingleActivity"
             android:label="@string/example2_title"
