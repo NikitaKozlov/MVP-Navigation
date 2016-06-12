@@ -20,7 +20,7 @@
             android:label="@string/example1_title"
             android:parentActivityName=".MainActivity"/>
 
-        <activity android:name=".example2_fragments.ArticleFragmentsActivity"
+        <activity android:name=".example2_fragments.SingleActivity"
             android:label="@string/example2_title"
             android:parentActivityName=".MainActivity"/>
 

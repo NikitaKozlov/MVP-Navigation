@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import org.kaerdan.mvp_navigation.R;
 
-public class ArticleFragmentsActivity extends AppCompatActivity {
+public class SingleActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
