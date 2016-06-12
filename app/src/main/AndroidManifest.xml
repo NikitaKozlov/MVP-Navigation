@@ -6,8 +6,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:supportsRtl="true">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -15,26 +14,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".example1_activities.ArticleListActivity"
+        <activity
+            android:name=".example1_activities.ArticleListActivity"
             android:label="@string/example1_title"
-            android:parentActivityName=".MainActivity"/>
-
-        <activity android:name=".example1_activities.FavoriteArticleListActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".example1_activities.FavoriteArticleListActivity"
             android:label="@string/example1_title"
-            android:parentActivityName=".MainActivity"/>
-
-        <activity android:name=".example1_activities.ArticleActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".example1_activities.ArticleActivity"
             android:label="@string/example1_title"
-            android:parentActivityName=".example1_activities.ArticleListActivity"/>
-
-        <activity android:name=".example2_fragments.SingleActivity"
+            android:parentActivityName=".example1_activities.ArticleListActivity" />
+        <activity
+            android:name=".example2_fragments.SingleActivity"
             android:label="@string/example2_title"
-            android:parentActivityName=".MainActivity"/>
-
-        <activity android:name=".example3_viewpager.ArticleViewPagerActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".example3_viewpager.ArticleViewPagerActivity"
             android:label="@string/example3_title"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>
