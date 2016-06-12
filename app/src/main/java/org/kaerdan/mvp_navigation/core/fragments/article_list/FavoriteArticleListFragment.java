@@ -7,6 +7,8 @@ public class FavoriteArticleListFragment extends ArticleListFragment {
     @NonNull
     @Override
     protected ArticleListContract.Presenter getPresenter() {
-        return new FavouriteArticleListPresenter();
+        ArticleListContract.Presenter presenter = new FavoriteArticleListPresenter();
+        presenter.setNavigator(getNavigator(presenter));
+        return presenter;
     }
 }

@@ -45,7 +45,7 @@ public class ArticleListFragment extends Fragment  implements ArticleListContrac
     }
 
     @NonNull
-    private ArticleListNavigationContract.Navigator getNavigator(ArticleListContract.Presenter presenter) {
+    protected ArticleListNavigationContract.Navigator getNavigator(ArticleListContract.Presenter presenter) {
         Fragment parentFragment = getParentFragment();
         if (parentFragment != null && parentFragment instanceof ArticleListNavigationContract.NavigatorProvider) {
             return ((ArticleListNavigationContract.NavigatorProvider) parentFragment).getNavigator(presenter);
@@ -55,7 +55,7 @@ public class ArticleListFragment extends Fragment  implements ArticleListContrac
                 return ((ArticleListNavigationContract.NavigatorProvider) activity).getNavigator(presenter);
             }
         }
-        throw new IllegalStateException("Activty or parent Fragment must implement " +
+        throw new IllegalStateException("Activity or parent Fragment must implement " +
                 "ArticleListNavigationContract.NavigatorProvider");
     }
 

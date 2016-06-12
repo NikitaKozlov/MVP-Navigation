@@ -20,6 +20,10 @@
             android:label="@string/example1_title"
             android:parentActivityName=".MainActivity"/>
 
+        <activity android:name=".example1_activities.FavoriteArticleListActivity"
+            android:label="@string/example1_title"
+            android:parentActivityName=".MainActivity"/>
+
         <activity android:name=".example1_activities.ArticleActivity"
             android:label="@string/example1_title"
             android:parentActivityName=".example1_activities.ArticleListActivity"/>

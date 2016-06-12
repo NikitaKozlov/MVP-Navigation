@@ -2,7 +2,7 @@ package org.kaerdan.mvp_navigation.core.fragments.article_list;
 
 import org.kaerdan.mvp_navigation.core.data.DataProvider;
 
-public class FavouriteArticleListPresenter implements ArticleListContract.Presenter, OnArticleClickListener {
+public class FavoriteArticleListPresenter implements ArticleListContract.Presenter, OnArticleClickListener {
 
     private ArticleListContract.View view;
     private ArticleListNavigationContract.Navigator navigator;
