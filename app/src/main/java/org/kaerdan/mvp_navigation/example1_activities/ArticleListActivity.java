@@ -34,21 +34,11 @@ public class ArticleListActivity extends AppCompatActivity implements ArticleLis
             public void openArticle(int id) {
                 startActivity(ArticleActivity.createIntent(ArticleListActivity.this, id));
             }
+
+            @Override
+            public void openFavoriteArticles() {
+                startActivity(new Intent(ArticleListActivity.this, FavoriteArticleListActivity.class));
+            }
         };
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.favorite_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.favorite) {
-            startActivity(new Intent(this, FavoriteArticleListActivity.class));
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 }

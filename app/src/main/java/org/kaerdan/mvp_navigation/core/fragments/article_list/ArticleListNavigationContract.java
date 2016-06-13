@@ -5,6 +5,8 @@ import android.support.annotation.NonNull;
 public interface ArticleListNavigationContract {
     interface Navigator {
         void openArticle(int id);
+
+        void openFavoriteArticles();
     }
 
     interface NavigatorProvider {

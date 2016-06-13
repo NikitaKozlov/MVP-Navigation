@@ -7,6 +7,7 @@ import java.util.List;
 public interface ArticleListContract {
     interface Presenter extends org.kaerdan.mvp_navigation.core.Presenter<View> {
         void setNavigator(ArticleListNavigationContract.Navigator navigator);
+        void onFavoriteArticleClick();
     }
 
     interface View extends org.kaerdan.mvp_navigation.core.Presenter.View {

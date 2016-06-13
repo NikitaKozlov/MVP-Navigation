@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import org.kaerdan.mvp_navigation.R;
 import org.kaerdan.mvp_navigation.core.data.Article;
-import org.kaerdan.mvp_navigation.core.fragments.article_list.ArticleListContract;
 
 public class ArticleFragment extends Fragment implements ArticleContract.View {
 

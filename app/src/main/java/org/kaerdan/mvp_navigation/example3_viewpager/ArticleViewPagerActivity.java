@@ -1,7 +1,7 @@
 package org.kaerdan.mvp_navigation.example3_viewpager;
+
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,10 +13,14 @@ import org.kaerdan.mvp_navigation.R;
 import org.kaerdan.mvp_navigation.core.fragments.article_list.ArticleListContract;
 import org.kaerdan.mvp_navigation.core.fragments.article_list.ArticleListFragment;
 import org.kaerdan.mvp_navigation.core.fragments.article_list.ArticleListNavigationContract;
-import org.kaerdan.mvp_navigation.core.fragments.article_list.FavoriteArticleListFragment;
+import org.kaerdan.mvp_navigation.core.fragments.favorite_list.FavoriteArticleListContract;
+import org.kaerdan.mvp_navigation.core.fragments.favorite_list.FavoriteArticleListFragment;
+import org.kaerdan.mvp_navigation.core.fragments.favorite_list.FavoriteArticleListNavigationContract;
 import org.kaerdan.mvp_navigation.example1_activities.ArticleActivity;
 
-public class ArticleViewPagerActivity extends AppCompatActivity implements ArticleListNavigationContract.NavigatorProvider {
+public class ArticleViewPagerActivity extends AppCompatActivity
+        implements ArticleListNavigationContract.NavigatorProvider,
+        FavoriteArticleListNavigationContract.NavigatorProvider {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -50,6 +54,22 @@ public class ArticleViewPagerActivity extends AppCompatActivity implements Artic
     @Override
     public ArticleListNavigationContract.Navigator getNavigator(ArticleListContract.Presenter presenter) {
         return new ArticleListNavigationContract.Navigator() {
+            @Override
+            public void openArticle(int id) {
+                startActivity(ArticleActivity.createIntent(ArticleViewPagerActivity.this, id));
+            }
+
+            @Override
+            public void openFavoriteArticles() {
+                mViewPager.setCurrentItem(1);
+            }
+        };
+    }
+
+    @NonNull
+    @Override
+    public FavoriteArticleListNavigationContract.Navigator getNavigator(FavoriteArticleListContract.Presenter presenter) {
+        return new FavoriteArticleListNavigationContract.Navigator() {
             @Override
             public void openArticle(int id) {
                 startActivity(ArticleActivity.createIntent(ArticleViewPagerActivity.this, id));

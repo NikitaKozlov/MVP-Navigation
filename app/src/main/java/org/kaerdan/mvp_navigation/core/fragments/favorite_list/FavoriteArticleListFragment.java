@@ -1,4 +1,4 @@
-package org.kaerdan.mvp_navigation.core.fragments.article_list;
+package org.kaerdan.mvp_navigation.core.fragments.favorite_list;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -12,17 +12,20 @@ import android.view.ViewGroup;
 
 import org.kaerdan.mvp_navigation.R;
 import org.kaerdan.mvp_navigation.core.data.Article;
+import org.kaerdan.mvp_navigation.core.fragments.article_list.ArticleListAdapter;
+import org.kaerdan.mvp_navigation.core.fragments.article_list.OnArticleClickListener;
+import org.kaerdan.mvp_navigation.core.fragments.article_list.ArticleListContract;
+import org.kaerdan.mvp_navigation.core.fragments.article_list.ArticleListNavigationContract;
 
 import java.util.List;
 
+public class FavoriteArticleListFragment extends Fragment implements FavoriteArticleListContract.View {
 
-public class ArticleListFragment extends Fragment implements ArticleListContract.View {
-
-    private ArticleListContract.Presenter presenter;
+    private FavoriteArticleListContract.Presenter presenter;
 
     private RecyclerView recyclerView;
 
-    public ArticleListFragment() {
+    public FavoriteArticleListFragment() {
         // Required empty public constructor
     }
 
@@ -31,42 +34,33 @@ public class ArticleListFragment extends Fragment implements ArticleListContract
                              Bundle savedInstanceState) {
         presenter = getPresenter();
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_article_list, container, false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.article_list);
+        recyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_favorite_article_list, container, false);
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext(),
                 LinearLayoutManager.VERTICAL, false));
-
-        view.findViewById(R.id.favorite_articles)
-                .setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        presenter.onFavoriteArticleClick();
-                    }
-                });
-
-        return view;
+        return recyclerView;
     }
 
+
     @NonNull
-    protected ArticleListContract.Presenter getPresenter() {
-        ArticleListContract.Presenter presenter = new ArticleListPresenter();
+    protected FavoriteArticleListContract.Presenter getPresenter() {
+        FavoriteArticleListContract.Presenter presenter = new FavoriteArticleListPresenter();
         presenter.setNavigator(getNavigator(presenter));
         return presenter;
     }
 
     @NonNull
-    protected ArticleListNavigationContract.Navigator getNavigator(ArticleListContract.Presenter presenter) {
+    protected FavoriteArticleListNavigationContract.Navigator getNavigator(FavoriteArticleListContract.Presenter presenter) {
         Fragment parentFragment = getParentFragment();
-        if (parentFragment != null && parentFragment instanceof ArticleListNavigationContract.NavigatorProvider) {
-            return ((ArticleListNavigationContract.NavigatorProvider) parentFragment).getNavigator(presenter);
+        if (parentFragment != null && parentFragment instanceof FavoriteArticleListNavigationContract.NavigatorProvider) {
+            return ((FavoriteArticleListNavigationContract.NavigatorProvider) parentFragment).getNavigator(presenter);
         } else {
             Activity activity = getActivity();
-            if (activity instanceof ArticleListNavigationContract.NavigatorProvider) {
-                return ((ArticleListNavigationContract.NavigatorProvider) activity).getNavigator(presenter);
+            if (activity instanceof FavoriteArticleListNavigationContract.NavigatorProvider) {
+                return ((FavoriteArticleListNavigationContract.NavigatorProvider) activity).getNavigator(presenter);
             }
         }
         throw new IllegalStateException("Activity or parent Fragment must implement " +
-                "ArticleListNavigationContract.NavigatorProvider");
+                "FavoriteArticleListNavigationContract.NavigatorProvider");
     }
 
     @Override

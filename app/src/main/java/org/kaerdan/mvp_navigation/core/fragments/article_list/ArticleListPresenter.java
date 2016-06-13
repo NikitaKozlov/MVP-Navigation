@@ -20,6 +20,11 @@ public class ArticleListPresenter implements ArticleListContract.Presenter, OnAr
     }
 
     @Override
+    public void onFavoriteArticleClick() {
+        navigator.openFavoriteArticles();
+    }
+
+    @Override
     public void onDetachView() {
         view = null;
         navigator = null;
