@@ -4,15 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import org.kaerdan.mvp_navigation.R;
 import org.kaerdan.mvp_navigation.core.fragments.article_list.ArticleListContract;
 import org.kaerdan.mvp_navigation.core.fragments.article_list.ArticleListFragment;
-import org.kaerdan.mvp_navigation.core.fragments.article_list.ArticleListNavigationContract;
 
-public class ArticleListActivity extends AppCompatActivity implements ArticleListNavigationContract.NavigatorProvider {
+public class ArticleListActivity extends AppCompatActivity implements ArticleListContract.NavigatorProvider {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +25,8 @@ public class ArticleListActivity extends AppCompatActivity implements ArticleLis
 
     @NonNull
     @Override
-    public ArticleListNavigationContract.Navigator getNavigator(ArticleListContract.Presenter presenter) {
-        return new ArticleListNavigationContract.Navigator() {
+    public ArticleListContract.Navigator getNavigator(ArticleListContract.Presenter presenter) {
+        return new ArticleListContract.Navigator() {
             @Override
             public void openArticle(int id) {
                 startActivity(ArticleActivity.createIntent(ArticleListActivity.this, id));
@@ -37,7 +34,7 @@ public class ArticleListActivity extends AppCompatActivity implements ArticleLis
 
             @Override
             public void openFavoriteArticles() {
-                startActivity(new Intent(ArticleListActivity.this, FavoriteArticleListActivity.class));
+                startActivity(new Intent(ArticleListActivity.this, FavoriteListActivity.class));
             }
         };
     }

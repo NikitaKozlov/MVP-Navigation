@@ -5,7 +5,7 @@ import org.kaerdan.mvp_navigation.core.data.DataProvider;
 public class ArticleListPresenter implements ArticleListContract.Presenter, OnArticleClickListener {
 
     private ArticleListContract.View view;
-    private ArticleListNavigationContract.Navigator navigator;
+    private ArticleListContract.Navigator navigator;
 
     @Override
     public void onAttachView(ArticleListContract.View view) {
@@ -15,7 +15,7 @@ public class ArticleListPresenter implements ArticleListContract.Presenter, OnAr
         view.displayArticles(DataProvider.getInstance().getArticles(), this);
     }
 
-    public void setNavigator(ArticleListNavigationContract.Navigator navigator) {
+    public void setNavigator(ArticleListContract.Navigator navigator) {
         this.navigator = navigator;
     }
 

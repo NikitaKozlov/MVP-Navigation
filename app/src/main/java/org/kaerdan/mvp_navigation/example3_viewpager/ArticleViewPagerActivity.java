@@ -12,15 +12,13 @@ import android.os.Bundle;
 import org.kaerdan.mvp_navigation.R;
 import org.kaerdan.mvp_navigation.core.fragments.article_list.ArticleListContract;
 import org.kaerdan.mvp_navigation.core.fragments.article_list.ArticleListFragment;
-import org.kaerdan.mvp_navigation.core.fragments.article_list.ArticleListNavigationContract;
-import org.kaerdan.mvp_navigation.core.fragments.favorite_list.FavoriteArticleListContract;
-import org.kaerdan.mvp_navigation.core.fragments.favorite_list.FavoriteArticleListFragment;
-import org.kaerdan.mvp_navigation.core.fragments.favorite_list.FavoriteArticleListNavigationContract;
+import org.kaerdan.mvp_navigation.core.fragments.favorite_list.FavoriteListContract;
+import org.kaerdan.mvp_navigation.core.fragments.favorite_list.FavoriteListFragment;
 import org.kaerdan.mvp_navigation.example1_activities.ArticleActivity;
 
 public class ArticleViewPagerActivity extends AppCompatActivity
-        implements ArticleListNavigationContract.NavigatorProvider,
-        FavoriteArticleListNavigationContract.NavigatorProvider {
+        implements ArticleListContract.NavigatorProvider,
+        FavoriteListContract.NavigatorProvider {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -52,8 +50,8 @@ public class ArticleViewPagerActivity extends AppCompatActivity
 
     @NonNull
     @Override
-    public ArticleListNavigationContract.Navigator getNavigator(ArticleListContract.Presenter presenter) {
-        return new ArticleListNavigationContract.Navigator() {
+    public ArticleListContract.Navigator getNavigator(ArticleListContract.Presenter presenter) {
+        return new ArticleListContract.Navigator() {
             @Override
             public void openArticle(int id) {
                 startActivity(ArticleActivity.createIntent(ArticleViewPagerActivity.this, id));
@@ -68,8 +66,8 @@ public class ArticleViewPagerActivity extends AppCompatActivity
 
     @NonNull
     @Override
-    public FavoriteArticleListNavigationContract.Navigator getNavigator(FavoriteArticleListContract.Presenter presenter) {
-        return new FavoriteArticleListNavigationContract.Navigator() {
+    public FavoriteListContract.Navigator getNavigator(FavoriteListContract.Presenter presenter) {
+        return new FavoriteListContract.Navigator() {
             @Override
             public void openArticle(int id) {
                 startActivity(ArticleActivity.createIntent(ArticleViewPagerActivity.this, id));
@@ -92,7 +90,7 @@ public class ArticleViewPagerActivity extends AppCompatActivity
             if (position == 0) {
                 return new ArticleListFragment();
             }
-            return new FavoriteArticleListFragment();
+            return new FavoriteListFragment();
         }
 
         @Override
