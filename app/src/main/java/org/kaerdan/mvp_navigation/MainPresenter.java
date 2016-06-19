@@ -9,10 +9,11 @@ import java.util.List;
 public class MainPresenter  implements MainContract.Presenter {
 
     private List<Integer> stringIdList = Arrays.asList(R.string.example1_title,
-            R.string.example2_title, R.string.example3_title, R.string.example4_title);
+            R.string.example2_title, R.string.example3_title, R.string.example4_title, R.string.example5_title);
 
     private List<Class<?>> activityClsList = Arrays.<Class<?>>asList(org.kaerdan.mvp_navigation.example1_activities.ArticleListActivity.class,
-            ArticleListActivity.class, ArticleViewPagerActivity.class, org.kaerdan.mvp_navigation.example4_injection.ArticleListActivity.class);
+            ArticleListActivity.class, ArticleViewPagerActivity.class, org.kaerdan.mvp_navigation.example4_injection.ArticleListActivity.class,
+            org.kaerdan.mvp_navigation.example5_retainpresenter.ArticleListActivity.class);
 
     private MainContract.View view;
 

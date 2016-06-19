@@ -1,4 +1,4 @@
-package org.kaerdan.mvp_navigation.core.fragments.article_list;
+package org.kaerdan.mvp_navigation.core.fragments;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import org.kaerdan.mvp_navigation.core.data.Article;
-import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
 
 import java.util.List;
 

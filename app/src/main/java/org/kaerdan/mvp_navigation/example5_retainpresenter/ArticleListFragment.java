@@ -1,4 +1,4 @@
-package org.kaerdan.mvp_navigation.core.fragments.article_list;
+package org.kaerdan.mvp_navigation.example5_retainpresenter;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -12,15 +12,17 @@ import android.view.ViewGroup;
 
 import org.kaerdan.mvp_navigation.R;
 import org.kaerdan.mvp_navigation.core.data.Article;
-import org.kaerdan.mvp_navigation.core.fragments.ArticleListAdapter;
 import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
+import org.kaerdan.mvp_navigation.core.fragments.ArticleListAdapter;
+import org.kaerdan.presenterretainer.PresenterFragment;
 
 import java.util.List;
 
 
-public class ArticleListFragment extends Fragment implements ArticleListContract.View {
+public class ArticleListFragment
+        extends PresenterFragment<ArticleListContract.Presenter, ArticleListContract.View>
+        implements ArticleListContract.View {
 
-    private ArticleListContract.Presenter presenter;
 
     private RecyclerView recyclerView;
 
@@ -31,29 +33,46 @@ public class ArticleListFragment extends Fragment implements ArticleListContract
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        presenter = getPresenter();
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_article_list, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.article_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext(),
                 LinearLayoutManager.VERTICAL, false));
 
-        view.findViewById(R.id.favorite_articles)
-                .setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        presenter.onFavoriteArticleClick();
-                    }
-                });
-
         return view;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        getView().findViewById(R.id.favorite_articles)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getPresenter().onFavoriteArticleClick();
+                    }
+                });
+    }
+
+    @Override
+    protected void onPresenterRestored() {
+        super.onPresenterRestored();
+        ArticleListContract.Presenter presenter = getPresenter();
+        presenter.setNavigator(getNavigator(presenter));
+    }
+
+
     @NonNull
-    protected ArticleListContract.Presenter getPresenter() {
+    @Override
+    protected ArticleListContract.Presenter onCreatePresenter() {
         ArticleListContract.Presenter presenter = new ArticleListPresenter();
         presenter.setNavigator(getNavigator(presenter));
         return presenter;
+    }
+
+    @Override
+    protected ArticleListContract.View getPresenterView() {
+        return this;
     }
 
     @NonNull
@@ -69,18 +88,6 @@ public class ArticleListFragment extends Fragment implements ArticleListContract
         }
         throw new IllegalStateException("Activity or parent Fragment must implement " +
                 "ArticleListNavigationContract.NavigatorProvider");
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        presenter.onAttachView(this);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        presenter.onDetachView();
     }
 
     @Override

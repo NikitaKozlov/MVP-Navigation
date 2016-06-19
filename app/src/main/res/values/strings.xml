@@ -15,4 +15,7 @@
 
     <string name="example4_title">Example 4 Injection</string>
     <string name="example4_description">Example 4 Description</string>
+
+    <string name="example5_title">Example 5 RetainPresenter</string>
+    <string name="example5_description">Example 4 Description</string>
 </resources>

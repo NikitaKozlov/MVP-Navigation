@@ -1,8 +1,6 @@
 package org.kaerdan.mvp_navigation.example4_injection;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,7 +11,7 @@ import android.view.ViewGroup;
 import org.kaerdan.mvp_navigation.R;
 import org.kaerdan.mvp_navigation.core.data.Article;
 import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
-import org.kaerdan.mvp_navigation.core.fragments.article_list.ArticleListAdapter;
+import org.kaerdan.mvp_navigation.core.fragments.ArticleListAdapter;
 
 import java.util.List;
 

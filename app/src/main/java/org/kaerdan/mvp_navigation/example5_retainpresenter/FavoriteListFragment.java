@@ -1,30 +1,25 @@
-package org.kaerdan.mvp_navigation.core.fragments.favorite_list;
-
-import java.util.List;
-
-import org.kaerdan.mvp_navigation.R;
-import org.kaerdan.mvp_navigation.core.data.Article;
-import org.kaerdan.mvp_navigation.core.fragments.ArticleListAdapter;
-import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
+package org.kaerdan.mvp_navigation.example5_retainpresenter;
 
 import android.app.Activity;
-
 import android.os.Bundle;
-
 import android.support.annotation.NonNull;
-
 import android.support.v4.app.Fragment;
-
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class FavoriteListFragment extends Fragment implements FavoriteListContract.View {
+import org.kaerdan.mvp_navigation.R;
+import org.kaerdan.mvp_navigation.core.data.Article;
+import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
+import org.kaerdan.mvp_navigation.core.fragments.ArticleListAdapter;
+import org.kaerdan.presenterretainer.PresenterFragment;
 
-    private FavoriteListContract.Presenter presenter;
+import java.util.List;
+
+public class FavoriteListFragment extends PresenterFragment<FavoriteListContract.Presenter, FavoriteListContract.View>
+        implements FavoriteListContract.View {
 
     private RecyclerView recyclerView;
 
@@ -35,7 +30,6 @@ public class FavoriteListFragment extends Fragment implements FavoriteListContra
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
             final Bundle savedInstanceState) {
-        presenter = getPresenter();
 
         // Inflate the layout for this fragment
         recyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_favorite_article_list, container, false);
@@ -44,11 +38,23 @@ public class FavoriteListFragment extends Fragment implements FavoriteListContra
         return recyclerView;
     }
 
+    @Override
+    protected void onPresenterRestored() {
+        super.onPresenterRestored();
+        FavoriteListContract.Presenter presenter = getPresenter();
+        presenter.setNavigator(getNavigator(presenter));
+    }
+
     @NonNull
-    protected FavoriteListContract.Presenter getPresenter() {
+    protected FavoriteListContract.Presenter onCreatePresenter() {
         FavoriteListContract.Presenter presenter = new FavoriteListPresenter();
         presenter.setNavigator(getNavigator(presenter));
         return presenter;
+    }
+
+    @Override
+    protected FavoriteListContract.View getPresenterView() {
+        return this;
     }
 
     @NonNull
@@ -66,18 +72,6 @@ public class FavoriteListFragment extends Fragment implements FavoriteListContra
 
         throw new IllegalStateException("Activity or parent Fragment must implement "
                 + "FavoriteArticleListNavigationContract.NavigatorProvider");
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        presenter.onAttachView(this);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        presenter.onDetachView();
     }
 
     @Override
