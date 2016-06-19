@@ -1,4 +1,4 @@
-package org.kaerdan.mvp_navigation.core.fragments.article_list;
+package org.kaerdan.mvp_navigation.example4_injection;
 
 import org.kaerdan.mvp_navigation.core.data.DataProvider;
 import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
@@ -6,7 +6,9 @@ import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
 public class ArticleListPresenter implements ArticleListContract.Presenter, OnArticleClickListener {
 
     private ArticleListContract.View view;
-    private ArticleListContract.Navigator navigator;
+
+    //@Inject
+    ArticleListContract.Navigator navigator;
 
     @Override
     public void onAttachView(ArticleListContract.View view) {
@@ -14,10 +16,6 @@ public class ArticleListPresenter implements ArticleListContract.Presenter, OnAr
 
         //Usually this call goes asynchronous, but for this example it doesn't matter
         view.displayArticles(DataProvider.getInstance().getArticles(), this);
-    }
-
-    public void setNavigator(ArticleListContract.Navigator navigator) {
-        this.navigator = navigator;
     }
 
     @Override

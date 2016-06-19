@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import org.kaerdan.mvp_navigation.core.data.Article;
+import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
 
 import java.util.List;
 

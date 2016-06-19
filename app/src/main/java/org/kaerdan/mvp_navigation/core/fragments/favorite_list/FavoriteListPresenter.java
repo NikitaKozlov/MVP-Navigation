@@ -1,7 +1,7 @@
 package org.kaerdan.mvp_navigation.core.fragments.favorite_list;
 
 import org.kaerdan.mvp_navigation.core.data.DataProvider;
-import org.kaerdan.mvp_navigation.core.fragments.article_list.OnArticleClickListener;
+import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
 
 public class FavoriteListPresenter implements FavoriteListContract.Presenter, OnArticleClickListener {
 

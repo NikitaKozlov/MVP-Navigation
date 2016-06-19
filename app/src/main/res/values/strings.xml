@@ -12,4 +12,7 @@
 
     <string name="example3_title">Example 3 ViewPager</string>
     <string name="example3_description">Example 3 Description</string>
+
+    <string name="example4_title">Example 4 Injection</string>
+    <string name="example4_description">Example 4 Description</string>
 </resources>

@@ -1,4 +1,4 @@
-package org.kaerdan.mvp_navigation.core.fragments.article_list;
+package org.kaerdan.mvp_navigation.example4_injection;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,13 +13,15 @@ import android.view.ViewGroup;
 import org.kaerdan.mvp_navigation.R;
 import org.kaerdan.mvp_navigation.core.data.Article;
 import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
+import org.kaerdan.mvp_navigation.core.fragments.article_list.ArticleListAdapter;
 
 import java.util.List;
 
 
 public class ArticleListFragment extends Fragment implements ArticleListContract.View {
 
-    private ArticleListContract.Presenter presenter;
+    //@Inject
+    ArticleListContract.Presenter presenter;
 
     private RecyclerView recyclerView;
 
@@ -30,12 +32,13 @@ public class ArticleListFragment extends Fragment implements ArticleListContract
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        presenter = getPresenter();
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_article_list, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.article_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext(),
                 LinearLayoutManager.VERTICAL, false));
+
+        Injector.inject(this);
 
         view.findViewById(R.id.favorite_articles)
                 .setOnClickListener(new View.OnClickListener() {
@@ -46,28 +49,6 @@ public class ArticleListFragment extends Fragment implements ArticleListContract
                 });
 
         return view;
-    }
-
-    @NonNull
-    protected ArticleListContract.Presenter getPresenter() {
-        ArticleListContract.Presenter presenter = new ArticleListPresenter();
-        presenter.setNavigator(getNavigator(presenter));
-        return presenter;
-    }
-
-    @NonNull
-    protected ArticleListContract.Navigator getNavigator(ArticleListContract.Presenter presenter) {
-        Fragment parentFragment = getParentFragment();
-        if (parentFragment != null && parentFragment instanceof ArticleListContract.NavigatorProvider) {
-            return ((ArticleListContract.NavigatorProvider) parentFragment).getNavigator(presenter);
-        } else {
-            Activity activity = getActivity();
-            if (activity instanceof ArticleListContract.NavigatorProvider) {
-                return ((ArticleListContract.NavigatorProvider) activity).getNavigator(presenter);
-            }
-        }
-        throw new IllegalStateException("Activity or parent Fragment must implement " +
-                "ArticleListNavigationContract.NavigatorProvider");
     }
 
     @Override

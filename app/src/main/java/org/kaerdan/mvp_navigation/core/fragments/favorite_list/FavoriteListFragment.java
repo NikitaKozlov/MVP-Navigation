@@ -5,7 +5,7 @@ import java.util.List;
 import org.kaerdan.mvp_navigation.R;
 import org.kaerdan.mvp_navigation.core.data.Article;
 import org.kaerdan.mvp_navigation.core.fragments.article_list.ArticleListAdapter;
-import org.kaerdan.mvp_navigation.core.fragments.article_list.OnArticleClickListener;
+import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
 
 import android.app.Activity;
 

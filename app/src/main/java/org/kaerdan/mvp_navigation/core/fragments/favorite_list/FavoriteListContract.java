@@ -3,7 +3,7 @@ package org.kaerdan.mvp_navigation.core.fragments.favorite_list;
 import java.util.List;
 
 import org.kaerdan.mvp_navigation.core.data.Article;
-import org.kaerdan.mvp_navigation.core.fragments.article_list.OnArticleClickListener;
+import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
 
 import android.support.annotation.NonNull;
 

@@ -1,4 +1,4 @@
-package org.kaerdan.mvp_navigation.core.fragments.article_list;
+package org.kaerdan.mvp_navigation.core.fragments;
 
 public interface OnArticleClickListener {
     void onArticleClick(int id);

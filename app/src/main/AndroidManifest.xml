@@ -42,6 +42,12 @@
             android:name=".example3_viewpager.ArticleViewPagerActivity"
             android:label="@string/example3_title"
             android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".example4_injection.ArticleListActivity"
+            android:label="@string/example4_title"
+            android:parentActivityName=".MainActivity" />
+
     </application>
 
 </manifest>
