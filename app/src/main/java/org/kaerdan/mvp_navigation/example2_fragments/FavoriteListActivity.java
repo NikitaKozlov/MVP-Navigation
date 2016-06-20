@@ -1,13 +1,9 @@
 package org.kaerdan.mvp_navigation.example2_fragments;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.MenuItem;
 
 import org.kaerdan.mvp_navigation.R;
 import org.kaerdan.mvp_navigation.core.fragments.article.ArticleFragment;
@@ -26,6 +22,17 @@ public class FavoriteListActivity extends AppCompatActivity implements FavoriteL
                     .add(R.id.main_content, new FavoriteListFragment(), null)
                     .commit();
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+
+        return(super.onOptionsItemSelected(item));
     }
 
     @NonNull
