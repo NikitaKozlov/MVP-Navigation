@@ -19,8 +19,9 @@ public class FragmentsFavoriteListActivity extends AppCompatActivity implements 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single);
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().add(R.id.main_content, new FavoriteListFragment(), null)
-                                       .commit();
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.main_content, new FavoriteListFragment(), null)
+                    .commit();
         }
     }
 
@@ -28,7 +29,7 @@ public class FragmentsFavoriteListActivity extends AppCompatActivity implements 
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
 
-            case android.R.id.home :
+            case android.R.id.home:
                 onBackPressed();
                 return true;
         }

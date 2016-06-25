@@ -18,7 +18,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         if (position == 0) {
             return new ArticleListFragment();
         }
-
         return new FavoriteListFragment();
     }
 
@@ -27,7 +26,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         if (position == 0) {
             return "Article List";
         }
-
         return "Favorite List";
     }
 

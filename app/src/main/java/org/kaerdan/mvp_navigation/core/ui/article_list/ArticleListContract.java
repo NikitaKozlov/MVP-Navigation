@@ -9,13 +9,13 @@ import android.support.annotation.NonNull;
 
 public interface ArticleListContract {
     interface Presenter extends org.kaerdan.mvp_navigation.core.Presenter<View> {
-        void setNavigator(Navigator navigator);
+        void setNavigator(@NonNull Navigator navigator);
 
         void onFavoriteArticleClick();
     }
 
     interface View extends org.kaerdan.mvp_navigation.core.Presenter.View {
-        void displayArticles(List<Article> articles, OnArticleClickListener onArticleClickListener);
+        void displayArticles(@NonNull List<Article> articles, @NonNull OnArticleClickListener onArticleClickListener);
     }
 
     interface Navigator {

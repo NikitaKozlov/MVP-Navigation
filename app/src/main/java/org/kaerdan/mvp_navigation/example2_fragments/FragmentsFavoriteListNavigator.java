@@ -17,7 +17,9 @@ public class FragmentsFavoriteListNavigator implements FavoriteListContract.Navi
 
     @Override
     public void openArticle(final int id) {
-        mActivity.getSupportFragmentManager().beginTransaction()
-                 .replace(R.id.secondary_content, ArticleFragment.newInstance(id), null).commit();
+        mActivity.getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.secondary_content, ArticleFragment.newInstance(id), null)
+                .commit();
     }
 }

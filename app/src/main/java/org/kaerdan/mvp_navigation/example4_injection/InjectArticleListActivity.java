@@ -14,7 +14,8 @@ public class InjectArticleListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_single_fragment);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                                       .add(R.id.content_frame, new InjectArticleListFragment(), null).commit();
+                    .add(R.id.content_frame, new InjectArticleListFragment(), null)
+                    .commit();
         }
     }
 }

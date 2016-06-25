@@ -2,6 +2,7 @@ package org.kaerdan.mvp_navigation;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,32 +14,32 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
 
-    private ListView listView;
-    private MainPresenter mainPresenter;
+    private ListView mListView;
+    private MainPresenter mMainPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        listView = (ListView) findViewById(R.id.button_list);
-        mainPresenter = new MainPresenter();
+        mListView = (ListView) findViewById(R.id.button_list);
+        mMainPresenter = new MainPresenter();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        mainPresenter.onAttachView(this);
+        mMainPresenter.onAttachView(this);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        mainPresenter.onDetachView();
+        mMainPresenter.onDetachView();
     }
 
     @Override
-    public void displayButtons(List<Integer> stringIdList) {
-        listView.setAdapter(new ArrayAdapter<Integer>(this, 0, stringIdList) {
+    public void displayButtons(@NonNull List<Integer> stringIdList) {
+        mListView.setAdapter(new ArrayAdapter<Integer>(this, 0, stringIdList) {
             @Override
             public View getView(final int position, View convertView, ViewGroup parent) {
                 Button button = convertView != null ? (Button) convertView : new Button(parent.getContext());
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        mainPresenter.onButtonFromListClicked(position);
+                        mMainPresenter.onButtonFromListClicked(position);
                     }
                 });
                 return button;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     @Override
-    public void launchActivity(Class<?> cls) {
+    public void launchActivity(@NonNull Class<?> cls) {
         startActivity(new Intent(this, cls));
     }
 

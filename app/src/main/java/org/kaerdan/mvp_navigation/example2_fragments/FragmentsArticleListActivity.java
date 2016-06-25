@@ -17,8 +17,9 @@ public class FragmentsArticleListActivity extends AppCompatActivity implements A
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single);
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().add(R.id.main_content, new ArticleListFragment(), null)
-                                       .commit();
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.main_content, new ArticleListFragment(), null)
+                    .commit();
         }
     }
 

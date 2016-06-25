@@ -15,13 +15,13 @@ import android.widget.Button;
 
 public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.ArticleViewHolder> {
 
-    private final List<Article> articles;
-    private final OnArticleClickListener onArticleClickListener;
+    private final List<Article> mArticles;
+    private final OnArticleClickListener mOnArticleClickListener;
 
     public ArticleListAdapter(@NonNull final List<Article> articles,
             @NonNull final OnArticleClickListener onArticleClickListener) {
-        this.articles = articles;
-        this.onArticleClickListener = onArticleClickListener;
+        this.mArticles = articles;
+        this.mOnArticleClickListener = onArticleClickListener;
     }
 
     @Override
@@ -31,19 +31,19 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
 
     @Override
     public void onBindViewHolder(final ArticleViewHolder holder, final int position) {
-        final Article article = articles.get(position);
+        final Article article = mArticles.get(position);
         ((Button) holder.itemView).setText(article.getTitle());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View v) {
-                    onArticleClickListener.onArticleClick(article.getId());
+                    mOnArticleClickListener.onArticleClick(article.getId());
                 }
             });
     }
 
     @Override
     public int getItemCount() {
-        return articles.size();
+        return mArticles.size();
     }
 
     static class ArticleViewHolder extends RecyclerView.ViewHolder {
@@ -51,5 +51,4 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
             super(itemView);
         }
     }
-
 }

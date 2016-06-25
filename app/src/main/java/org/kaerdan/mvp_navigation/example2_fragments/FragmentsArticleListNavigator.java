@@ -14,13 +14,14 @@ public class FragmentsArticleListNavigator implements ArticleListContract.Naviga
 
     public FragmentsArticleListNavigator(final AppCompatActivity activity) {
         this.mActivity = activity;
-
     }
 
     @Override
     public void openArticle(final int id) {
-        mActivity.getSupportFragmentManager().beginTransaction()
-                 .replace(R.id.secondary_content, ArticleFragment.newInstance(id), null).commit();
+        mActivity.getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.secondary_content, ArticleFragment.newInstance(id), null)
+                .commit();
     }
 
     @Override

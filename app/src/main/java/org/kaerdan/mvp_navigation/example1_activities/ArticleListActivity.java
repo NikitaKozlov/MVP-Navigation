@@ -17,8 +17,9 @@ public class ArticleListActivity extends AppCompatActivity implements ArticleLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_single_fragment);
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().add(R.id.content_frame, new ArticleListFragment(), null)
-                                       .commit();
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.content_frame, new ArticleListFragment(), null)
+                    .commit();
         }
     }
 

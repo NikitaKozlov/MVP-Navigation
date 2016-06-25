@@ -15,7 +15,7 @@ public class InjectArticleListPresenter implements InjectArticleListContract.Pre
         this.mView = view;
 
         // Usually this call goes asynchronous, but for this example it doesn't matter
-        view.displayArticles(DataProvider.getInstance().getArticles(), this);
+        view.displayArticles(DataProvider.getInstance().getmArticles(), this);
     }
 
     @Override

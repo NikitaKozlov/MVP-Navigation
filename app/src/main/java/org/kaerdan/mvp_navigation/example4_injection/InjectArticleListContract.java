@@ -13,7 +13,8 @@ public interface InjectArticleListContract {
     }
 
     interface View extends org.kaerdan.mvp_navigation.core.Presenter.View {
-        void displayArticles(@NonNull List<Article> articles, @NonNull OnArticleClickListener onArticleClickListener);
+        void displayArticles(@NonNull List<Article> articles,
+                             @NonNull OnArticleClickListener onArticleClickListener);
     }
 
     interface Navigator {

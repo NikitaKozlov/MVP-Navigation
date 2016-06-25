@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 public class RetainPresenterArticleListActivity extends PresenterActivity
-    implements RetainPresenterArticleListContract.NavigatorProvider {
+        implements RetainPresenterArticleListContract.NavigatorProvider {
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -17,8 +17,8 @@ public class RetainPresenterArticleListActivity extends PresenterActivity
         setContentView(R.layout.activity_single_fragment);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                                       .add(R.id.content_frame, new RetainPresenterArticleListFragment(), null)
-                                       .commit();
+                    .add(R.id.content_frame, new RetainPresenterArticleListFragment(), null)
+                    .commit();
         }
     }
 

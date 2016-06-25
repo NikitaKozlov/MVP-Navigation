@@ -10,27 +10,27 @@ import org.kaerdan.mvp_navigation.example5_retainpresenter.RetainPresenterArticl
 
 public class MainPresenter implements MainContract.Presenter {
 
-    private List<Integer> stringIdList = Arrays.asList(R.string.example1_title, R.string.example2_title,
+    private final List<Integer> mStringIdList = Arrays.asList(R.string.example1_title, R.string.example2_title,
             R.string.example3_title, R.string.example4_title, R.string.example5_title);
 
-    private List<Class<?>> activityClsList = Arrays.<Class<?>>asList(
+    private final List<Class<?>> mActivityClsList = Arrays.<Class<?>>asList(
             org.kaerdan.mvp_navigation.example1_activities.ArticleListActivity.class,
             FragmentsArticleListActivity.class, ViewPagerActivity.class, InjectArticleListActivity.class,
             RetainPresenterArticleListActivity.class);
 
-    private MainContract.View view;
+    private MainContract.View mView;
 
     public void onAttachView(final MainContract.View view) {
-        this.view = view;
-        view.displayButtons(stringIdList);
+        this.mView = view;
+        view.displayButtons(mStringIdList);
     }
 
     public void onDetachView() {
-        this.view = null;
+        this.mView = null;
     }
 
     @Override
     public void onButtonFromListClicked(final int position) {
-        view.launchActivity(activityClsList.get(position));
+        mView.launchActivity(mActivityClsList.get(position));
     }
 }

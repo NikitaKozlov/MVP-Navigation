@@ -25,8 +25,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class RetainPresenterArticleListFragment
-    extends PresenterFragment<RetainPresenterArticleListContract.Presenter, RetainPresenterArticleListContract.View>
-    implements RetainPresenterArticleListContract.View {
+        extends PresenterFragment<RetainPresenterArticleListContract.Presenter, RetainPresenterArticleListContract.View>
+        implements RetainPresenterArticleListContract.View {
 
     private RecyclerView mRecyclerView;
 
@@ -36,7 +36,7 @@ public class RetainPresenterArticleListFragment
 
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
-            final Bundle savedInstanceState) {
+                             final Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_article_list, container, false);
@@ -51,11 +51,11 @@ public class RetainPresenterArticleListFragment
     public void onStart() {
         super.onStart();
         getView().findViewById(R.id.favorite_articles).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(final View v) {
-                    getPresenter().onFavoriteArticleClick();
-                }
-            });
+            @Override
+            public void onClick(final View v) {
+                getPresenter().onFavoriteArticleClick();
+            }
+        });
     }
 
     @Override
@@ -98,7 +98,7 @@ public class RetainPresenterArticleListFragment
 
     @Override
     public void displayArticles(@NonNull final List<Article> articles,
-            @NonNull final OnArticleClickListener onArticleClickListener) {
+                                @NonNull final OnArticleClickListener onArticleClickListener) {
         mRecyclerView.setAdapter(new ArticleListAdapter(articles, onArticleClickListener));
     }
 }

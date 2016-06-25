@@ -1,8 +1,8 @@
 package org.kaerdan.mvp_navigation.example1_activities;
 
-import android.content.Context;
-
 import org.kaerdan.mvp_navigation.core.ui.favorite_list.FavoriteListContract;
+
+import android.content.Context;
 
 public class ActivitiesFavoriteListNavigator implements FavoriteListContract.Navigator {
 

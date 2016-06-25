@@ -16,7 +16,7 @@ public class RetainPresenterArticleListPresenter implements RetainPresenterArtic
         this.mView = view;
 
         // Usually this call goes asynchronous, but for this example it doesn't matter
-        view.displayArticles(DataProvider.getInstance().getArticles(), this);
+        view.displayArticles(DataProvider.getInstance().getmArticles(), this);
     }
 
     public void setNavigator(@NonNull final RetainPresenterArticleListContract.Navigator navigator) {

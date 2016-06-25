@@ -26,8 +26,9 @@ public class ArticleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_single_fragment);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                                       .add(R.id.content_frame,
-                ArticleFragment.newInstance(getIntent().getIntExtra(ARTICLE_ID_TAG, 0)), null).commit();
+                    .add(R.id.content_frame,
+                            ArticleFragment.newInstance(getIntent().getIntExtra(ARTICLE_ID_TAG, 0)), null)
+                    .commit();
         }
     }
 }

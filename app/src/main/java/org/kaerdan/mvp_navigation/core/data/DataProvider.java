@@ -1,10 +1,10 @@
 package org.kaerdan.mvp_navigation.core.data;
 
-import android.support.annotation.Nullable;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import android.support.annotation.Nullable;
 
 public class DataProvider {
 
@@ -19,40 +19,42 @@ public class DataProvider {
     private static final Article ARTICLE_9 = new Article(9, "Article 9", "Article 9 body", false);
     private static final Article ARTICLE_10 = new Article(10, "Article 10", "Article 10 body", true);
 
-    private static DataProvider ourInstance = new DataProvider();
+    private static DataProvider sInstance = new DataProvider();
 
     public static DataProvider getInstance() {
-        return ourInstance;
+        return sInstance;
     }
 
-    private final List<Article> articles;
+    private final List<Article> mArticles;
 
     private DataProvider() {
-        articles = Arrays.asList(ARTICLE_1, ARTICLE_2, ARTICLE_3, ARTICLE_4, ARTICLE_5, ARTICLE_6,
-                ARTICLE_7, ARTICLE_8, ARTICLE_9, ARTICLE_10);
+        mArticles = Arrays.asList(ARTICLE_1, ARTICLE_2, ARTICLE_3, ARTICLE_4, ARTICLE_5, ARTICLE_6, ARTICLE_7,
+                ARTICLE_8, ARTICLE_9, ARTICLE_10);
     }
 
-    public List<Article> getArticles() {
-        return articles;
+    public List<Article> getmArticles() {
+        return mArticles;
     }
 
     public List<Article> getFavouriteArticles() {
         List<Article> favouriteArticles = new ArrayList<>();
-        for (Article article : articles) {
+        for (Article article : mArticles) {
             if (article.isFavourite()) {
                 favouriteArticles.add(article);
             }
         }
+
         return favouriteArticles;
     }
 
     @Nullable
-    public Article getArticleById(int id) {
-        for (Article article : articles) {
+    public Article getArticleById(final int id) {
+        for (Article article : mArticles) {
             if (id == article.getId()) {
                 return article;
             }
         }
+
         return null;
     }
 }

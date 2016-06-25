@@ -1,5 +1,7 @@
 package org.kaerdan.mvp_navigation;
 
+import android.support.annotation.NonNull;
+
 import java.util.List;
 
 public interface MainContract {
@@ -8,7 +10,7 @@ public interface MainContract {
     }
 
     interface View extends org.kaerdan.mvp_navigation.core.Presenter.View {
-        void displayButtons(List<Integer> stringIdList);
-        void launchActivity(Class<?> cls);
+        void displayButtons(@NonNull List<Integer> stringIdList);
+        void launchActivity(@NonNull Class<?> cls);
     }
 }

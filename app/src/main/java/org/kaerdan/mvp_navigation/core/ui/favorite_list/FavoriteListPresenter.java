@@ -3,6 +3,8 @@ package org.kaerdan.mvp_navigation.core.ui.favorite_list;
 import org.kaerdan.mvp_navigation.core.data.DataProvider;
 import org.kaerdan.mvp_navigation.core.ui.OnArticleClickListener;
 
+import android.support.annotation.NonNull;
+
 public class FavoriteListPresenter implements FavoriteListContract.Presenter, OnArticleClickListener {
 
     private FavoriteListContract.View view;
@@ -27,7 +29,7 @@ public class FavoriteListPresenter implements FavoriteListContract.Presenter, On
     }
 
     @Override
-    public void setNavigator(final FavoriteListContract.Navigator navigator) {
+    public void setNavigator(@NonNull final FavoriteListContract.Navigator navigator) {
         this.navigator = navigator;
     }
 }

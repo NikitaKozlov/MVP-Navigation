@@ -24,9 +24,9 @@ import android.view.ViewGroup;
 
 public class FavoriteListFragment extends Fragment implements FavoriteListContract.View {
 
-    private FavoriteListContract.Presenter presenter;
+    private FavoriteListContract.Presenter mPresenter;
 
-    private RecyclerView recyclerView;
+    private RecyclerView mRecyclerView;
 
     public FavoriteListFragment() {
         // Required empty public constructor
@@ -35,17 +35,17 @@ public class FavoriteListFragment extends Fragment implements FavoriteListContra
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
             final Bundle savedInstanceState) {
-        presenter = getPresenter();
+        mPresenter = createPresenter();
 
         // Inflate the layout for this fragment
-        recyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_favorite_article_list, container, false);
-        recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext(), LinearLayoutManager.VERTICAL,
+        mRecyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_favorite_article_list, container, false);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(container.getContext(), LinearLayoutManager.VERTICAL,
                 false));
-        return recyclerView;
+        return mRecyclerView;
     }
 
     @NonNull
-    protected FavoriteListContract.Presenter getPresenter() {
+    protected FavoriteListContract.Presenter createPresenter() {
         FavoriteListContract.Presenter presenter = new FavoriteListPresenter();
         presenter.setNavigator(getNavigator(presenter));
         return presenter;
@@ -64,23 +64,24 @@ public class FavoriteListFragment extends Fragment implements FavoriteListContra
         }
 
         throw new IllegalStateException("Activity or parent Fragment must implement "
-                + "FavoriteArticleListNavigationContract.NavigatorProvider");
+                + "FavoriteListContract.NavigatorProvider");
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        presenter.onAttachView(this);
+        mPresenter.onAttachView(this);
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        presenter.onDetachView();
+        mPresenter.onDetachView();
     }
 
     @Override
-    public void displayArticles(final List<Article> articles, final OnArticleClickListener onArticleClickListener) {
-        recyclerView.setAdapter(new ArticleListAdapter(articles, onArticleClickListener));
+    public void displayArticles(@NonNull final List<Article> articles,
+            @NonNull final OnArticleClickListener onArticleClickListener) {
+        mRecyclerView.setAdapter(new ArticleListAdapter(articles, onArticleClickListener));
     }
 }

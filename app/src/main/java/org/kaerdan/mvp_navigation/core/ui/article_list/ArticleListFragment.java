@@ -24,9 +24,9 @@ import android.view.ViewGroup;
 
 public class ArticleListFragment extends Fragment implements ArticleListContract.View {
 
-    private ArticleListContract.Presenter presenter;
+    private ArticleListContract.Presenter mPresenter;
 
-    private RecyclerView recyclerView;
+    private RecyclerView mRecyclerView;
 
     public ArticleListFragment() {
         // Required empty public constructor
@@ -35,18 +35,18 @@ public class ArticleListFragment extends Fragment implements ArticleListContract
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
             final Bundle savedInstanceState) {
-        presenter = getPresenter();
+        mPresenter = createPresenter();
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_article_list, container, false);
-        recyclerView = (RecyclerView) view.findViewById(R.id.article_list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext(), LinearLayoutManager.VERTICAL,
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.article_list);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(container.getContext(), LinearLayoutManager.VERTICAL,
                 false));
 
         view.findViewById(R.id.favorite_articles).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View v) {
-                    presenter.onFavoriteArticleClick();
+                    mPresenter.onFavoriteArticleClick();
                 }
             });
 
@@ -54,7 +54,7 @@ public class ArticleListFragment extends Fragment implements ArticleListContract
     }
 
     @NonNull
-    protected ArticleListContract.Presenter getPresenter() {
+    protected ArticleListContract.Presenter createPresenter() {
         ArticleListContract.Presenter presenter = new ArticleListPresenter();
         presenter.setNavigator(getNavigator(presenter));
         return presenter;
@@ -73,23 +73,24 @@ public class ArticleListFragment extends Fragment implements ArticleListContract
         }
 
         throw new IllegalStateException("Activity or parent Fragment must implement "
-                + "ArticleListNavigationContract.NavigatorProvider");
+                + "ArticleListContract.NavigatorProvider");
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        presenter.onAttachView(this);
+        mPresenter.onAttachView(this);
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        presenter.onDetachView();
+        mPresenter.onDetachView();
     }
 
     @Override
-    public void displayArticles(final List<Article> articles, final OnArticleClickListener onArticleClickListener) {
-        recyclerView.setAdapter(new ArticleListAdapter(articles, onArticleClickListener));
+    public void displayArticles(@NonNull final List<Article> articles,
+            @NonNull final OnArticleClickListener onArticleClickListener) {
+        mRecyclerView.setAdapter(new ArticleListAdapter(articles, onArticleClickListener));
     }
 }

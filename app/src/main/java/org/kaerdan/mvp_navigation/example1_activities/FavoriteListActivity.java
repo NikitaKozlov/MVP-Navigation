@@ -3,7 +3,6 @@ package org.kaerdan.mvp_navigation.example1_activities;
 import org.kaerdan.mvp_navigation.R;
 import org.kaerdan.mvp_navigation.core.ui.favorite_list.FavoriteListContract;
 import org.kaerdan.mvp_navigation.core.ui.favorite_list.FavoriteListFragment;
-import org.kaerdan.mvp_navigation.example2_fragments.FragmentsFavoriteListNavigator;
 
 import android.os.Bundle;
 
@@ -26,7 +25,6 @@ public class FavoriteListActivity extends AppCompatActivity implements FavoriteL
     @NonNull
     @Override
     public FavoriteListContract.Navigator getNavigator(final FavoriteListContract.Presenter presenter) {
-        return new FragmentsFavoriteListNavigator(this);
+        return new ActivitiesFavoriteListNavigator(this);
     }
-
 }

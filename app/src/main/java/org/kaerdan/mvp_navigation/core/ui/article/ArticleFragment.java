@@ -5,6 +5,8 @@ import org.kaerdan.mvp_navigation.core.data.Article;
 
 import android.os.Bundle;
 
+import android.support.annotation.NonNull;
+
 import android.support.v4.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -26,8 +28,8 @@ public class ArticleFragment extends Fragment implements ArticleContract.View {
         return fragment;
     }
 
-    private ArticleContract.Presenter presenter;
-    private TextView articleTextView;
+    private ArticleContract.Presenter mPresenter;
+    private TextView mArticleTextView;
 
     public ArticleFragment() {
         // Required empty public constructor
@@ -38,27 +40,27 @@ public class ArticleFragment extends Fragment implements ArticleContract.View {
             final Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-        presenter = new ArticlePresenter(getArguments().getInt(ARTICLE_ID_TAG));
+        mPresenter = new ArticlePresenter(getArguments().getInt(ARTICLE_ID_TAG));
 
         View v = inflater.inflate(R.layout.fragment_article, container, false);
-        articleTextView = (TextView) v.findViewById(R.id.article_body);
+        mArticleTextView = (TextView) v.findViewById(R.id.article_body);
         return v;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        presenter.onAttachView(this);
+        mPresenter.onAttachView(this);
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        presenter.onDetachView();
+        mPresenter.onDetachView();
     }
 
     @Override
-    public void displayArticle(final Article article) {
-        articleTextView.setText(article.getBody());
+    public void displayArticle(@NonNull final Article article) {
+        mArticleTextView.setText(article.getBody());
     }
 }
