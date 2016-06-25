@@ -1,17 +1,15 @@
-package org.kaerdan.mvp_navigation.core.fragments.article_list;
-
-import android.support.annotation.NonNull;
-
-import org.kaerdan.mvp_navigation.core.data.Article;
-import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
+package org.kaerdan.mvp_navigation.core.ui.favorite_list;
 
 import java.util.List;
 
-public interface ArticleListContract {
+import org.kaerdan.mvp_navigation.core.data.Article;
+import org.kaerdan.mvp_navigation.core.ui.OnArticleClickListener;
+
+import android.support.annotation.NonNull;
+
+public interface FavoriteListContract {
     interface Presenter extends org.kaerdan.mvp_navigation.core.Presenter<View> {
         void setNavigator(Navigator navigator);
-
-        void onFavoriteArticleClick();
     }
 
     interface View extends org.kaerdan.mvp_navigation.core.Presenter.View {
@@ -20,13 +18,11 @@ public interface ArticleListContract {
 
     interface Navigator {
         void openArticle(int id);
-
-        void openFavoriteArticles();
     }
 
     interface NavigatorProvider {
 
         @NonNull
-        Navigator getNavigator(ArticleListContract.Presenter presenter);
+        Navigator getNavigator(FavoriteListContract.Presenter presenter);
     }
 }

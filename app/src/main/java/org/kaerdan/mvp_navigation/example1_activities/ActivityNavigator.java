@@ -1,20 +1,20 @@
 package org.kaerdan.mvp_navigation.example1_activities;
 
+import org.kaerdan.mvp_navigation.core.ui.article_list.ArticleListContract;
+
 import android.content.Context;
 import android.content.Intent;
-
-import org.kaerdan.mvp_navigation.core.fragments.article_list.ArticleListContract;
 
 public class ActivityNavigator implements ArticleListContract.Navigator {
 
     private final Context activityContext;
 
-    public ActivityNavigator(Context activityContext) {
+    public ActivityNavigator(final Context activityContext) {
         this.activityContext = activityContext;
     }
 
     @Override
-    public void openArticle(int id) {
+    public void openArticle(final int id) {
         activityContext.startActivity(ArticleActivity.createIntent(activityContext, id));
     }
 

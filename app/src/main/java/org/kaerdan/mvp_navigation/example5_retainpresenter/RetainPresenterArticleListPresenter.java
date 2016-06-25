@@ -1,7 +1,7 @@
 package org.kaerdan.mvp_navigation.example5_retainpresenter;
 
 import org.kaerdan.mvp_navigation.core.data.DataProvider;
-import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
+import org.kaerdan.mvp_navigation.core.ui.OnArticleClickListener;
 
 import android.support.annotation.NonNull;
 

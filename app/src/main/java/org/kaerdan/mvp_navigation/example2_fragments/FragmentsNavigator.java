@@ -1,27 +1,26 @@
 package org.kaerdan.mvp_navigation.example2_fragments;
 
+import org.kaerdan.mvp_navigation.R;
+import org.kaerdan.mvp_navigation.core.ui.article.ArticleFragment;
+import org.kaerdan.mvp_navigation.core.ui.article_list.ArticleListContract;
+
 import android.content.Intent;
+
 import android.support.v7.app.AppCompatActivity;
 
-import org.kaerdan.mvp_navigation.R;
-import org.kaerdan.mvp_navigation.core.fragments.article.ArticleFragment;
-import org.kaerdan.mvp_navigation.core.fragments.article_list.ArticleListContract;
-
-public class FragmentsNavigator implements ArticleListContract.Navigator{
+public class FragmentsNavigator implements ArticleListContract.Navigator {
 
     private final AppCompatActivity activity;
 
-    public FragmentsNavigator(AppCompatActivity activity) {
+    public FragmentsNavigator(final AppCompatActivity activity) {
         this.activity = activity;
 
     }
 
     @Override
-    public void openArticle(int id) {
-        activity.getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.secondary_content, ArticleFragment.newInstance(id), null)
-                .commit();
+    public void openArticle(final int id) {
+        activity.getSupportFragmentManager().beginTransaction()
+                .replace(R.id.secondary_content, ArticleFragment.newInstance(id), null).commit();
     }
 
     @Override

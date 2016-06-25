@@ -1,11 +1,11 @@
-package org.kaerdan.mvp_navigation.core.fragments.favorite_list;
+package org.kaerdan.mvp_navigation.core.ui.favorite_list;
 
 import java.util.List;
 
 import org.kaerdan.mvp_navigation.R;
 import org.kaerdan.mvp_navigation.core.data.Article;
-import org.kaerdan.mvp_navigation.core.fragments.ArticleListAdapter;
-import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
+import org.kaerdan.mvp_navigation.core.ui.ArticleListAdapter;
+import org.kaerdan.mvp_navigation.core.ui.OnArticleClickListener;
 
 import android.app.Activity;
 
@@ -52,8 +52,7 @@ public class FavoriteListFragment extends Fragment implements FavoriteListContra
     }
 
     @NonNull
-    protected FavoriteListContract.Navigator getNavigator(
-            final FavoriteListContract.Presenter presenter) {
+    protected FavoriteListContract.Navigator getNavigator(final FavoriteListContract.Presenter presenter) {
         Fragment parentFragment = getParentFragment();
         if (parentFragment != null && parentFragment instanceof FavoriteListContract.NavigatorProvider) {
             return ((FavoriteListContract.NavigatorProvider) parentFragment).getNavigator(presenter);

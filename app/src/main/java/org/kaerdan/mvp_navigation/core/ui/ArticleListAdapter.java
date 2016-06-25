@@ -1,4 +1,4 @@
-package org.kaerdan.mvp_navigation.core.fragments;
+package org.kaerdan.mvp_navigation.core.ui;
 
 import java.util.List;
 

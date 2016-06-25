@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.kaerdan.mvp_navigation.R;
 import org.kaerdan.mvp_navigation.core.data.Article;
-import org.kaerdan.mvp_navigation.core.fragments.ArticleListAdapter;
-import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
+import org.kaerdan.mvp_navigation.core.ui.ArticleListAdapter;
+import org.kaerdan.mvp_navigation.core.ui.OnArticleClickListener;
 
 import org.kaerdan.presenterretainer.PresenterFragment;
 

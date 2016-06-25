@@ -1,7 +1,7 @@
 package org.kaerdan.mvp_navigation.example4_injection;
 
 import org.kaerdan.mvp_navigation.core.data.DataProvider;
-import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
+import org.kaerdan.mvp_navigation.core.ui.OnArticleClickListener;
 
 public class InjectArticleListPresenter implements InjectArticleListContract.Presenter, OnArticleClickListener {
 

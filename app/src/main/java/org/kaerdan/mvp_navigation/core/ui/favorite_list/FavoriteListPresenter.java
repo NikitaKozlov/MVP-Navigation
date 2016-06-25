@@ -1,7 +1,7 @@
-package org.kaerdan.mvp_navigation.core.fragments.favorite_list;
+package org.kaerdan.mvp_navigation.core.ui.favorite_list;
 
 import org.kaerdan.mvp_navigation.core.data.DataProvider;
-import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
+import org.kaerdan.mvp_navigation.core.ui.OnArticleClickListener;
 
 public class FavoriteListPresenter implements FavoriteListContract.Presenter, OnArticleClickListener {
 
@@ -9,10 +9,10 @@ public class FavoriteListPresenter implements FavoriteListContract.Presenter, On
     private FavoriteListContract.Navigator navigator;
 
     @Override
-    public void onAttachView(FavoriteListContract.View view) {
+    public void onAttachView(final FavoriteListContract.View view) {
         this.view = view;
 
-        //Usually this call goes asynchronous, but for this example it doesn't matter
+        // Usually this call goes asynchronous, but for this example it doesn't matter
         view.displayArticles(DataProvider.getInstance().getFavouriteArticles(), this);
     }
 
@@ -22,12 +22,12 @@ public class FavoriteListPresenter implements FavoriteListContract.Presenter, On
     }
 
     @Override
-    public void onArticleClick(int id) {
+    public void onArticleClick(final int id) {
         navigator.openArticle(id);
     }
 
     @Override
-    public void setNavigator(FavoriteListContract.Navigator navigator) {
+    public void setNavigator(final FavoriteListContract.Navigator navigator) {
         this.navigator = navigator;
     }
 }

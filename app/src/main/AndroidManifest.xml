@@ -39,7 +39,7 @@
             android:screenOrientation="sensorLandscape" />
 
         <activity
-            android:name=".example3_viewpager.ArticleViewPagerActivity"
+            android:name=".example3_viewpager.ViewPagerActivity"
             android:label="@string/example3_title"
             android:parentActivityName=".MainActivity" />
 

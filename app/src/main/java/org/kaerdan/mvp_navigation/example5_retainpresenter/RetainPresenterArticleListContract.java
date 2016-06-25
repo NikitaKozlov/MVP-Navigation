@@ -3,7 +3,7 @@ package org.kaerdan.mvp_navigation.example5_retainpresenter;
 import java.util.List;
 
 import org.kaerdan.mvp_navigation.core.data.Article;
-import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
+import org.kaerdan.mvp_navigation.core.ui.OnArticleClickListener;
 
 import android.support.annotation.NonNull;
 

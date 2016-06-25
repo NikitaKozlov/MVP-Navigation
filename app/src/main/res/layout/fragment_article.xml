@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".core.fragments.article_list.ArticleListFragment">
+    tools:context=".core.ui.article_list.ArticleListFragment">
 
     <TextView
         android:padding="@dimen/activity_vertical_margin"
