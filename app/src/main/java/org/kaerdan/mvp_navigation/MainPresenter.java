@@ -1,5 +1,7 @@
 package org.kaerdan.mvp_navigation;
 
+import android.support.annotation.NonNull;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,9 +21,10 @@ public class MainPresenter implements MainContract.Presenter {
             RetainPresenterArticleListActivity.class);
 
     private MainContract.View mView;
+    private MainContract.Navigator mNavigator;
 
     public void onAttachView(final MainContract.View view) {
-        this.mView = view;
+        mView = view;
         view.displayButtons(mStringIdList);
     }
 
@@ -31,6 +34,11 @@ public class MainPresenter implements MainContract.Presenter {
 
     @Override
     public void onButtonFromListClicked(final int position) {
-        mView.launchActivity(mActivityClsList.get(position));
+        mNavigator.launchActivity(mActivityClsList.get(position));
+    }
+
+    @Override
+    public void setNavigator(@NonNull MainContract.Navigator navigator) {
+        mNavigator = navigator;
     }
 }

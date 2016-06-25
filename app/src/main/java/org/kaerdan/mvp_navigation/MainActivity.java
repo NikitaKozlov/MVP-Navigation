@@ -1,6 +1,5 @@
 package org.kaerdan.mvp_navigation;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         setContentView(R.layout.activity_main);
         mListView = (ListView) findViewById(R.id.button_list);
         mMainPresenter = new MainPresenter();
+        mMainPresenter.setNavigator(new MainNavigator(this));
     }
 
     @Override
@@ -54,10 +54,4 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             }
         });
     }
-
-    @Override
-    public void launchActivity(@NonNull Class<?> cls) {
-        startActivity(new Intent(this, cls));
-    }
-
 }
