@@ -32,7 +32,7 @@ public class FavoriteListActivity extends AppCompatActivity implements FavoriteL
                 return true;
         }
 
-        return(super.onOptionsItemSelected(item));
+        return super.onOptionsItemSelected(item);
     }
 
     @NonNull

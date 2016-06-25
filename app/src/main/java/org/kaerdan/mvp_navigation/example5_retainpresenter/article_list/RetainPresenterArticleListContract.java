@@ -1,21 +1,21 @@
-package org.kaerdan.mvp_navigation.example5_retainpresenter;
+package org.kaerdan.mvp_navigation.example5_retainpresenter.article_list;
 
-import android.support.annotation.NonNull;
+import java.util.List;
 
 import org.kaerdan.mvp_navigation.core.data.Article;
 import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
 
-import java.util.List;
+import android.support.annotation.NonNull;
 
-public interface ArticleListContract {
+public interface RetainPresenterArticleListContract {
     interface Presenter extends org.kaerdan.presenterretainer.Presenter<View> {
-        void setNavigator(Navigator navigator);
+        void setNavigator(@NonNull Navigator navigator);
 
         void onFavoriteArticleClick();
     }
 
     interface View extends org.kaerdan.presenterretainer.Presenter.View {
-        void displayArticles(List<Article> articles, OnArticleClickListener onArticleClickListener);
+        void displayArticles(@NonNull List<Article> articles, @NonNull OnArticleClickListener onArticleClickListener);
     }
 
     interface Navigator {
@@ -27,6 +27,6 @@ public interface ArticleListContract {
     interface NavigatorProvider {
 
         @NonNull
-        Navigator getNavigator(ArticleListContract.Presenter presenter);
+        Navigator getNavigator(RetainPresenterArticleListContract.Presenter presenter);
     }
 }

@@ -49,11 +49,11 @@
             android:parentActivityName=".MainActivity" />
 
         <activity
-            android:name=".example5_retainpresenter.ArticleListActivity"
+            android:name=".example5_retainpresenter.article_list.RetainPresenterArticleListActivity"
             android:label="@string/example5_title"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".example5_retainpresenter.FavoriteListActivity"
+            android:name=".example5_retainpresenter.favorite_list.RetainPresenterFavoriteListActivity"
             android:label="@string/example5_title"
             android:parentActivityName=".MainActivity" />
     </application>
