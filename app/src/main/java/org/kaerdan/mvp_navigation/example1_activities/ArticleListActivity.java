@@ -25,6 +25,6 @@ public class ArticleListActivity extends AppCompatActivity implements ArticleLis
     @NonNull
     @Override
     public ArticleListContract.Navigator getNavigator(final ArticleListContract.Presenter presenter) {
-        return new ActivityNavigator(this);
+        return new ActivitiesArticleListNavigator(this);
     }
 }

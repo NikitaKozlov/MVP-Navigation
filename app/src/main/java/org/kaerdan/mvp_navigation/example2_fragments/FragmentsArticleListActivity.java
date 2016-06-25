@@ -10,7 +10,7 @@ import android.support.annotation.NonNull;
 
 import android.support.v7.app.AppCompatActivity;
 
-public class ArticleListActivity extends AppCompatActivity implements ArticleListContract.NavigatorProvider {
+public class FragmentsArticleListActivity extends AppCompatActivity implements ArticleListContract.NavigatorProvider {
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -25,6 +25,6 @@ public class ArticleListActivity extends AppCompatActivity implements ArticleLis
     @NonNull
     @Override
     public ArticleListContract.Navigator getNavigator(final ArticleListContract.Presenter presenter) {
-        return new FragmentsNavigator(this);
+        return new FragmentsArticleListNavigator(this);
     }
 }

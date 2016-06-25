@@ -3,7 +3,7 @@ package org.kaerdan.mvp_navigation;
 import java.util.Arrays;
 import java.util.List;
 
-import org.kaerdan.mvp_navigation.example2_fragments.ArticleListActivity;
+import org.kaerdan.mvp_navigation.example2_fragments.FragmentsArticleListActivity;
 import org.kaerdan.mvp_navigation.example3_viewpager.ViewPagerActivity;
 import org.kaerdan.mvp_navigation.example4_injection.InjectArticleListActivity;
 import org.kaerdan.mvp_navigation.example5_retainpresenter.RetainPresenterArticleListActivity;
@@ -14,8 +14,9 @@ public class MainPresenter implements MainContract.Presenter {
             R.string.example3_title, R.string.example4_title, R.string.example5_title);
 
     private List<Class<?>> activityClsList = Arrays.<Class<?>>asList(
-            org.kaerdan.mvp_navigation.example1_activities.ArticleListActivity.class, ArticleListActivity.class,
-            ViewPagerActivity.class, InjectArticleListActivity.class, RetainPresenterArticleListActivity.class);
+            org.kaerdan.mvp_navigation.example1_activities.ArticleListActivity.class,
+            FragmentsArticleListActivity.class, ViewPagerActivity.class, InjectArticleListActivity.class,
+            RetainPresenterArticleListActivity.class);
 
     private MainContract.View view;
 
