@@ -44,12 +44,12 @@
             android:parentActivityName=".MainActivity" />
 
         <activity
-            android:name=".example4_injection.ArticleListActivity"
+            android:name=".example4_injection.InjectArticleListActivity"
             android:label="@string/example4_title"
             android:parentActivityName=".MainActivity" />
 
         <activity
-            android:name=".example5_retainpresenter.article_list.RetainPresenterArticleListActivity"
+            android:name=".example5_retainpresenter.RetainPresenterArticleListActivity"
             android:label="@string/example5_title"
             android:parentActivityName=".MainActivity" />
         <activity

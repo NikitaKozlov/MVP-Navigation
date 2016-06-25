@@ -1,4 +1,4 @@
-package org.kaerdan.mvp_navigation.example5_retainpresenter.favorite_list;
+package org.kaerdan.mvp_navigation.example5_retainpresenter;
 
 import org.kaerdan.mvp_navigation.R;
 
@@ -8,8 +8,8 @@ import android.os.Bundle;
 
 import android.support.annotation.NonNull;
 
-public class RetainPresenterFavoriteListActivity extends PresenterActivity
-    implements RetainPresenterFavoriteListContract.NavigatorProvider {
+public class RetainPresenterArticleListActivity extends PresenterActivity
+    implements RetainPresenterArticleListContract.NavigatorProvider {
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -17,16 +17,15 @@ public class RetainPresenterFavoriteListActivity extends PresenterActivity
         setContentView(R.layout.activity_single_fragment);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                                       .add(R.id.content_frame, new RetainPresenterFavoriteListFragment(), null)
+                                       .add(R.id.content_frame, new RetainPresenterArticleListFragment(), null)
                                        .commit();
         }
     }
 
     @NonNull
     @Override
-    public RetainPresenterFavoriteListContract.Navigator getNavigator(
-            final RetainPresenterFavoriteListContract.Presenter presenter) {
-        return new RetainPresenterFavoriteListNavigator(this);
+    public RetainPresenterArticleListContract.Navigator getNavigator(
+            final RetainPresenterArticleListContract.Presenter presenter) {
+        return new RetainPresenterActivityNavigator(this);
     }
-
 }

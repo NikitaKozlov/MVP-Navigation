@@ -1,4 +1,4 @@
-package org.kaerdan.mvp_navigation.example5_retainpresenter.favorite_list;
+package org.kaerdan.mvp_navigation.example5_retainpresenter;
 
 import java.util.List;
 
@@ -7,9 +7,11 @@ import org.kaerdan.mvp_navigation.core.fragments.OnArticleClickListener;
 
 import android.support.annotation.NonNull;
 
-public interface RetainPresenterFavoriteListContract {
+public interface RetainPresenterArticleListContract {
     interface Presenter extends org.kaerdan.presenterretainer.Presenter<View> {
         void setNavigator(@NonNull Navigator navigator);
+
+        void onFavoriteArticleClick();
     }
 
     interface View extends org.kaerdan.presenterretainer.Presenter.View {
@@ -18,10 +20,13 @@ public interface RetainPresenterFavoriteListContract {
 
     interface Navigator {
         void openArticle(int id);
+
+        void openFavoriteArticles();
     }
 
     interface NavigatorProvider {
+
         @NonNull
-        Navigator getNavigator(RetainPresenterFavoriteListContract.Presenter presenter);
+        Navigator getNavigator(RetainPresenterArticleListContract.Presenter presenter);
     }
 }

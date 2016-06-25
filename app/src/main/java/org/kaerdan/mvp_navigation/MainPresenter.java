@@ -5,7 +5,8 @@ import java.util.List;
 
 import org.kaerdan.mvp_navigation.example2_fragments.ArticleListActivity;
 import org.kaerdan.mvp_navigation.example3_viewpager.ArticleViewPagerActivity;
-import org.kaerdan.mvp_navigation.example5_retainpresenter.article_list.RetainPresenterArticleListActivity;
+import org.kaerdan.mvp_navigation.example4_injection.InjectArticleListActivity;
+import org.kaerdan.mvp_navigation.example5_retainpresenter.RetainPresenterArticleListActivity;
 
 public class MainPresenter implements MainContract.Presenter {
 
@@ -14,8 +15,7 @@ public class MainPresenter implements MainContract.Presenter {
 
     private List<Class<?>> activityClsList = Arrays.<Class<?>>asList(
             org.kaerdan.mvp_navigation.example1_activities.ArticleListActivity.class, ArticleListActivity.class,
-            ArticleViewPagerActivity.class, org.kaerdan.mvp_navigation.example4_injection.ArticleListActivity.class,
-            RetainPresenterArticleListActivity.class);
+            ArticleViewPagerActivity.class, InjectArticleListActivity.class, RetainPresenterArticleListActivity.class);
 
     private MainContract.View view;
 
