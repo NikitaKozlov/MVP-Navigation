@@ -38,7 +38,7 @@ public class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
-    public void setNavigator(@NonNull MainContract.Navigator navigator) {
+    public void setNavigator(@NonNull final MainContract.Navigator navigator) {
         mNavigator = navigator;
     }
 }
