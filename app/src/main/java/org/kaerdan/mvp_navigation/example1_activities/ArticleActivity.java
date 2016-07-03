@@ -10,6 +10,8 @@ import android.os.Bundle;
 
 import android.support.v7.app.AppCompatActivity;
 
+import android.view.MenuItem;
+
 public class ArticleActivity extends AppCompatActivity {
 
     private static final String ARTICLE_ID_TAG = "Article id";
@@ -26,9 +28,21 @@ public class ArticleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_single_fragment);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.content_frame,
-                            ArticleFragment.newInstance(getIntent().getIntExtra(ARTICLE_ID_TAG, 0)), null)
-                    .commit();
+                                       .add(R.id.content_frame,
+                ArticleFragment.newInstance(getIntent().getIntExtra(ARTICLE_ID_TAG, 0)), null).commit();
         }
+
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

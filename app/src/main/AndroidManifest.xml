@@ -17,44 +17,38 @@
         </activity>
         <activity
             android:name=".example1_activities.ArticleListActivity"
-            android:label="@string/example1_title"
+            android:label="@string/article"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".example1_activities.FavoriteListActivity"
-            android:label="@string/example1_title"
-            android:parentActivityName=".MainActivity" />
+            android:label="@string/favorite_articles" />
         <activity
             android:name=".example1_activities.ArticleActivity"
-            android:label="@string/example1_title"
-            android:parentActivityName=".example1_activities.ArticleListActivity" />
+            android:label="@string/article" />
         <activity
             android:name=".example2_fragments.FragmentsArticleListActivity"
-            android:label="@string/example2_title"
+            android:label="@string/articles"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="sensorLandscape" />
         <activity
             android:name=".example2_fragments.FragmentsFavoriteListActivity"
-            android:label="@string/example2_title"
+            android:label="@string/favorite_articles"
             android:parentActivityName=".example2_fragments.FragmentsArticleListActivity"
             android:screenOrientation="sensorLandscape" />
 
         <activity
             android:name=".example3_viewpager.ViewPagerActivity"
-            android:label="@string/example3_title"
+            android:label="@string/articles"
             android:parentActivityName=".MainActivity" />
 
         <activity
             android:name=".example4_injection.InjectArticleListActivity"
-            android:label="@string/example4_title"
+            android:label="@string/articles"
             android:parentActivityName=".MainActivity" />
 
         <activity
             android:name=".example5_retainpresenter.RetainPresenterArticleListActivity"
-            android:label="@string/example5_title"
-            android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".example5_retainpresenter.favorite_list.RetainPresenterFavoriteListActivity"
-            android:label="@string/example5_title"
+            android:label="@string/articles"
             android:parentActivityName=".MainActivity" />
     </application>
 

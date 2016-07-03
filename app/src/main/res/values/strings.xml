@@ -2,7 +2,11 @@
     <string name="app_name">MVP-Navigation</string>
     <string name="app_description">Navigation examples</string>
 
-    <string name="favorite">Favourite</string>
+    <string name="favorite">Favorite</string>
+
+    <string name="article">Article</string>
+    <string name="articles">Articles</string>
+    <string name="favorite_articles">Favorite Articles</string>
 
     <string name="example1_title">Example 1 Activities</string>
     <string name="example1_description">Example 1 Description</string>
