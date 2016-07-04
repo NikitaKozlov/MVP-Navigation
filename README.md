@@ -2,6 +2,8 @@
 
 Sample of using Navigator with MVP. It contains an Android application that allows you to browse through articles, read them and see the list of favorite articles. There are 5 examples each of them shows this approach from a different angle.
 
+Motivation and explanations of this approach you can find in [this article](https://medium.com/@nikita.kozlov/navigation-in-the-context-of-mvp-f474ed313901#.brvusch7b)
+
 First three examples shares same Fragments but apply different navigation patterns: 
 * **New screen**. In the first example I’m opening another Activity, but same logic can be applied for replacing Fragments.
 * **Master-Detail Pattern**. This could be useful in the case of tablet layout.
