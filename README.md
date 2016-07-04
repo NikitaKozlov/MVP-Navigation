@@ -7,4 +7,7 @@ First three examples shares same Fragments but apply different navigation patter
 * **Master-Detail Pattern**. This could be useful in the case of tablet layout.
 * **ViewPager**. Some times instead of opening new screen we want to slide to another tab.. 
 
-Forth example illustrates how dependency injection makes code simpler and more decoupled. Fifth example shows how to work with Navigator in case of Presenters that retains on configuration change.
+Forth example illustrates how dependency injection makes code simpler and more decoupled.
+
+Fifth example shows how to work with Navigator in case of Presenters that retains on configuration change. It retains Presenter using [this library.](https://github.com/NikitaKozlov/RetainPresenter)
+
