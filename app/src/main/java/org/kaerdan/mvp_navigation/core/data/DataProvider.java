@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 public class DataProvider {
 

@@ -6,9 +6,9 @@ import org.kaerdan.mvp_navigation.core.ui.article_list.ArticleListFragment;
 
 import android.os.Bundle;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ArticleListActivity extends AppCompatActivity implements ArticleListContract.NavigatorProvider {
 

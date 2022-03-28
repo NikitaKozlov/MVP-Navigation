@@ -1,26 +1,22 @@
 package org.kaerdan.mvp_navigation.core.ui.favorite_list;
 
-import java.util.List;
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.kaerdan.mvp_navigation.R;
 import org.kaerdan.mvp_navigation.core.data.Article;
 import org.kaerdan.mvp_navigation.core.ui.ArticleListAdapter;
 import org.kaerdan.mvp_navigation.core.ui.OnArticleClickListener;
 
-import android.app.Activity;
-
-import android.os.Bundle;
-
-import android.support.annotation.NonNull;
-
-import android.support.v4.app.Fragment;
-
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import java.util.List;
 
 public class FavoriteListFragment extends Fragment implements FavoriteListContract.View {
 

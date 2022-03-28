@@ -1,17 +1,13 @@
 package org.kaerdan.mvp_navigation.core.ui;
 
-import java.util.List;
-
-import org.kaerdan.mvp_navigation.core.data.Article;
-
-import android.support.annotation.NonNull;
-
-import android.support.v7.widget.RecyclerView;
-
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.Button;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import org.kaerdan.mvp_navigation.core.data.Article;
+import java.util.List;
 
 public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.ArticleViewHolder> {
 
@@ -19,7 +15,7 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
     private final OnArticleClickListener mOnArticleClickListener;
 
     public ArticleListAdapter(@NonNull final List<Article> articles,
-            @NonNull final OnArticleClickListener onArticleClickListener) {
+                              @NonNull final OnArticleClickListener onArticleClickListener) {
         this.mArticles = articles;
         this.mOnArticleClickListener = onArticleClickListener;
     }
@@ -34,11 +30,11 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
         final Article article = mArticles.get(position);
         ((Button) holder.itemView).setText(article.getTitle());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(final View v) {
-                    mOnArticleClickListener.onArticleClick(article.getId());
-                }
-            });
+            @Override
+            public void onClick(final View v) {
+                mOnArticleClickListener.onArticleClick(article.getId());
+            }
+        });
     }
 
     @Override

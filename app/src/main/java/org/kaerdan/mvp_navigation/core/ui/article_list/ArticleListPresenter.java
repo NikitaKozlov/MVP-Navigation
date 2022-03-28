@@ -3,7 +3,7 @@ package org.kaerdan.mvp_navigation.core.ui.article_list;
 import org.kaerdan.mvp_navigation.core.data.DataProvider;
 import org.kaerdan.mvp_navigation.core.ui.OnArticleClickListener;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 public class ArticleListPresenter implements ArticleListContract.Presenter, OnArticleClickListener {
 

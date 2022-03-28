@@ -4,7 +4,7 @@ import org.kaerdan.mvp_navigation.R;
 import org.kaerdan.mvp_navigation.core.ui.article.ArticleFragment;
 import org.kaerdan.mvp_navigation.core.ui.favorite_list.FavoriteListContract;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class FragmentsFavoriteListNavigator implements FavoriteListContract.Navigator {
 

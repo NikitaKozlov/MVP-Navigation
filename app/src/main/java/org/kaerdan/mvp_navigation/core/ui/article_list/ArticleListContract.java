@@ -5,7 +5,7 @@ import java.util.List;
 import org.kaerdan.mvp_navigation.core.data.Article;
 import org.kaerdan.mvp_navigation.core.ui.OnArticleClickListener;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 public interface ArticleListContract {
     interface Presenter extends org.kaerdan.mvp_navigation.core.Presenter<View> {

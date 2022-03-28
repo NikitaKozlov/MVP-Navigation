@@ -2,9 +2,7 @@ package org.kaerdan.mvp_navigation;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-
-import org.kaerdan.mvp_navigation.MainContract;
+import androidx.annotation.NonNull;
 
 public class MainNavigator implements MainContract.Navigator {
 
