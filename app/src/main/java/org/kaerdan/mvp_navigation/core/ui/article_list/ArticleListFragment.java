@@ -74,6 +74,7 @@ public class ArticleListFragment extends Fragment implements ArticleListContract
     @Override
     public void onStart() {
         super.onStart();
+        mPresenter = createPresenter();
         mPresenter.onAttachView(this);
     }
 
