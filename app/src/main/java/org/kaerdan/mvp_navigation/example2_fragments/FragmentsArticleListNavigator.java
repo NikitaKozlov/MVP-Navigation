@@ -6,7 +6,7 @@ import org.kaerdan.mvp_navigation.core.ui.article_list.ArticleListContract;
 
 import android.content.Intent;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class FragmentsArticleListNavigator implements ArticleListContract.Navigator {
 

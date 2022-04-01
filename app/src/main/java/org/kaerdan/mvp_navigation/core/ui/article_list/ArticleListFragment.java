@@ -6,17 +6,12 @@ import org.kaerdan.mvp_navigation.R;
 import org.kaerdan.mvp_navigation.core.data.Article;
 import org.kaerdan.mvp_navigation.core.ui.ArticleListAdapter;
 import org.kaerdan.mvp_navigation.core.ui.OnArticleClickListener;
-
 import android.app.Activity;
-
 import android.os.Bundle;
-
-import android.support.annotation.NonNull;
-
-import android.support.v4.app.Fragment;
-
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,7 +56,7 @@ public class ArticleListFragment extends Fragment implements ArticleListContract
     }
 
     @NonNull
-    protected ArticleListContract.Navigator getNavigator(final ArticleListContract.Presenter presenter) {
+    public ArticleListContract.Navigator getNavigator(final ArticleListContract.Presenter presenter) {
         Fragment parentFragment = getParentFragment();
         if (parentFragment != null && parentFragment instanceof ArticleListContract.NavigatorProvider) {
             return ((ArticleListContract.NavigatorProvider) parentFragment).getNavigator(presenter);
@@ -79,6 +74,7 @@ public class ArticleListFragment extends Fragment implements ArticleListContract
     @Override
     public void onStart() {
         super.onStart();
+        mPresenter = createPresenter();
         mPresenter.onAttachView(this);
     }
 

@@ -1,28 +1,21 @@
 package org.kaerdan.mvp_navigation.example5_retainpresenter;
 
-import java.util.List;
-
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import org.kaerdan.mvp_navigation.R;
 import org.kaerdan.mvp_navigation.core.data.Article;
 import org.kaerdan.mvp_navigation.core.ui.ArticleListAdapter;
 import org.kaerdan.mvp_navigation.core.ui.OnArticleClickListener;
-
 import org.kaerdan.presenterretainer.PresenterFragment;
 
-import android.app.Activity;
-
-import android.os.Bundle;
-
-import android.support.annotation.NonNull;
-
-import android.support.v4.app.Fragment;
-
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import java.util.List;
 
 public class RetainPresenterArticleListFragment
         extends PresenterFragment<RetainPresenterArticleListContract.Presenter, RetainPresenterArticleListContract.View>
@@ -59,10 +52,9 @@ public class RetainPresenterArticleListFragment
     }
 
     @Override
-    protected void onPresenterRestored() {
-        super.onPresenterRestored();
-
-        RetainPresenterArticleListContract.Presenter presenter = getPresenter();
+    protected void onPresenterRestored(RetainPresenterArticleListContract.Presenter presenter) {
+        super.onPresenterRestored(presenter);
+        //RetainPresenterArticleListContract.Presenter presenter = getPresenter();
         presenter.setNavigator(getNavigator(presenter));
     }
 

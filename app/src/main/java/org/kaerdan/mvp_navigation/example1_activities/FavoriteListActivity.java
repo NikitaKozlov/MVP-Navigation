@@ -6,9 +6,9 @@ import org.kaerdan.mvp_navigation.core.ui.favorite_list.FavoriteListFragment;
 
 import android.os.Bundle;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.MenuItem;
 

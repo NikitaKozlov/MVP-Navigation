@@ -5,7 +5,7 @@ import org.kaerdan.mvp_navigation.example1_activities.ArticleActivity;
 
 import android.content.Context;
 
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 
 public class ViewPagerArticleListNavigator implements ArticleListContract.Navigator {
 

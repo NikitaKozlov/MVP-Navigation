@@ -3,9 +3,9 @@ package org.kaerdan.mvp_navigation.example3_viewpager;
 import org.kaerdan.mvp_navigation.core.ui.article_list.ArticleListFragment;
 import org.kaerdan.mvp_navigation.core.ui.favorite_list.FavoriteListFragment;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
